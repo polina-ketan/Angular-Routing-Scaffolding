@@ -1,0 +1,21 @@
+<div ng-controller="loginController">
+	<form>
+		<header>Login Form</header>
+		<div class="form-group">
+			<input type="text" name="userName" placeholder="User Name"
+				   class="form-control" ng-model="userName" required />
+		</div>
+		<div class="form-group">
+			<input type="password" name="password" placeholder="Password"
+				   class="form-control" ng-model="userPassword" required />
+		</div>
+		<div class="form-group">
+			<input type="submit" value="Login" class="form-control login-button"
+				   ng-click="authenticate('dashboard')" />
+		</div>
+		<div>
+		   {{errorMessage}}
+		</div>
+	</form>
+</div>
+

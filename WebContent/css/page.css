@@ -1,0 +1,52 @@
+body {
+    margin: 0px 2px 0px -1px;
+}
+
+div.container {
+    width: 100%;
+}
+
+header, footer {
+    padding: 1em;
+    color: white;
+    background-color: #317329;
+    clear: left;
+    text-align: center;
+    position: relative;
+}
+
+nav {
+    float: left;
+    max-width: 160px;
+    margin: 0;
+    padding: 1em;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+   
+nav ul a {
+    text-decoration: none;
+}
+
+article {
+    margin-left: 170px;
+    border-left: 1px solid gray; 
+    padding: 1em;
+    overflow: hidden;
+    height: 466px;
+}
+
+.active {
+	margin-left: 170px;
+	border-left: none!important;
+    padding: 1em;
+    overflow: hidden;
+    height: 466px;
+}
+
+.pricingArticle {
+	height: 600px!important;
+}

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Scaffolding Application</title>
+<link rel="stylesheet" type="text/css" href="css/page.css">
+<link rel="stylesheet" type="text/css" href="css/login.css">
+<script src="lib/angular.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.4/angular-route.js"></script>
+<script type="text/javascript" src="page/components/page-module.js"></script>
+<script type="text/javascript" src="App/components/app-module.js"></script>
+</head>
+<body ng-app="app">
+	<div ng-controller="routeController">
+		<div class="container" ng-if="noAuth">
+			<header ng-include='"page/templates/header.html"' ng-if="currentPage !== 'pricing'"></header>
+			<nav>
+				<ul>
+					<li><a href="#!/" ng-click="getPath('home')">Home</a></li>
+					<li><a href="#!/about" ng-click="getPath('about')">About</a></li>
+					<li><a href="#!/pricing" ng-click="getPath('pricing')">Pricing</a></li>
+					<li><a href="#!/login" ng-click="getLogin('login')">Login</a></li>
+				</ul>
+			</nav>
+			<article ng-class="{pricingArticle : currentPage === 'pricing'}">
+				<div ng-view></div>
+			</article>
+			<footer ng-include='"page/templates/footer.html"' ng-if="currentPage !== 'about' && currentPage !== 'pricing'"></footer>
+		</div>
+		<div class="container" ng-if="!noAuth" ng-controller="loginController">
+			<header ng-include='"App/templates/header.html"' ng-if="currentPages !== 'login'"></header>
+			<nav ng-if="currentPages === 'dashboard'">
+				<ul>
+					<li><a href="#!/dashboard">Dashboard</a></li>
+					<li><a href="#!/settings">Settings</a></li>
+				</ul>
+			</nav>
+			<article ng-class="{active : currentPages === 'login'}">
+				<div ng-view></div>
+			</article>
+			<footer ng-include='"App/templates/footer.html"' ng-if="currentPages !== 'login'"></footer>
+		</div>
+	</div>
+</body>
+</html>
