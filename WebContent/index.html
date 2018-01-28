@@ -28,17 +28,17 @@
 			<footer ng-include='"page/templates/footer.html"' ng-if="currentPage !== 'about' && currentPage !== 'pricing'"></footer>
 		</div>
 		<div class="container" ng-if="!noAuth" ng-controller="loginController">
-			<header ng-include='"App/templates/header.html"' ng-if="currentPages !== 'login'"></header>
-			<nav ng-if="currentPages === 'dashboard'">
+			<header class="auth-header" ng-include='"App/templates/header.html"' ng-if="currentPages !== 'login'"></header>
+			<nav ng-if="currentPages === 'dashboard' || currentPages === 'settings'">
 				<ul>
 					<li><a href="#!/dashboard">Dashboard</a></li>
-					<li><a href="#!/settings">Settings</a></li>
+					<li><a href="#!/settings" ng-click="getSettings('settings')">Settings</a></li>
 				</ul>
 			</nav>
 			<article ng-class="{active : currentPages === 'login'}">
 				<div ng-view></div>
 			</article>
-			<footer ng-include='"App/templates/footer.html"' ng-if="currentPages !== 'login'"></footer>
+			<footer class="auth-header" ng-include='"App/templates/footer.html"' ng-if="currentPages !== 'login' && currentPages !== 'settings' "></footer>
 		</div>
 	</div>
 </body>

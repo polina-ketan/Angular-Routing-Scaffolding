@@ -26,5 +26,9 @@ app.controller('loginController', ['$scope', '$location', '$rootScope', function
 			$scope.errorMessage = "Please give valid credentials";
 		}
 	}
+    
+    $scope.getSettings = function(page) {
+    	$rootScope.currentPages = page;
+    }
 
 }]);
